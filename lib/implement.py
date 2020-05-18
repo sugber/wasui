@@ -1,13 +1,12 @@
 from selenium.webdriver.common.by import By
 from config.config import *
+from lib.browser import *
+from time import *
 
 class mytest():
     def element(self,case):
         sugber = case["sugber"]
-        caseid = case.get("caseid")
-        detail = case.get("detail")
         find_type = case.get("find_type")
-        check = case.get("check")
         driver = self.driver
 
         if find_type == 'By.ID':

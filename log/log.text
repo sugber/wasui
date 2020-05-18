@@ -1,5 +1,0 @@
-20-05-14 11:42:16 INFO get_execel read_execel.py 6 用例地址是C:\Users\dell\PycharmProjects\wasui\data\waseUI.xlsx，sheet页是Sheet1
-20-05-14 11:42:16 INFO get_execel read_execel.py 9 打开文件正常
-20-05-14 11:42:16 INFO get_execel read_execel.py 11 打开Sheet1页正常
-20-05-14 11:42:16 INFO ccc casefangfa.py 15 即将执行用例test_1
-20-05-14 11:42:16 INFO dongzuo implement.py 21 用例执行动作是click
