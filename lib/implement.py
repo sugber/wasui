@@ -1,13 +1,30 @@
 from selenium.webdriver.common.by import By
 from config.config import *
-from lib.browser import *
+# from lib.browser import *
 from time import *
+from lib.jietu import *
+from selenium import webdriver
 
 class mytest():
-    def element(self,case):
+    def mingzi(self,case,dongzuo):
+        if dongzuo == 'click':
+            jname = '-点击'
+            jietuname = case["detail"] + jname
+        elif dongzuo == 'send_keys':
+            jname = '-输入-'
+            jietuname = case["detail"] + jname + case["value"]
+        elif dongzuo == 'clear':
+            jname = '-清除'
+            jietuname = case["detail"] + jname
+        # jietuname = case["detail"]+jname+case["value"]
+        jietupath = os.path.join(path,"jietu",jietuname+".png")
+        return jietupath
+
+    def element(self,case,dongzuo):
         sugber = case["sugber"]
         find_type = case.get("find_type")
         driver = self.driver
+        # driver.get_screenshot_as_file(jietus)
 
         if find_type == 'By.ID':
             cc = driver.find_element(By.XPATH,sugber)
@@ -19,10 +36,16 @@ class mytest():
     def dongzuo(self,case,dongzuo):
         logging.info("用例执行动作是{}".format(dongzuo))
         if dongzuo == 'click':
-            self.element(case).click()
+            self.element(case,dongzuo).click()
         elif dongzuo == 'send_keys':
-            self.element(case).send_keys(case["value"])
+            self.element(case,dongzuo).send_keys(case["value"])
+        sleep(1)
+        self.driver.get_screenshot_as_file (self.mingzi(case,dongzuo) )
         logging.info("用例执行完成")
+    #
 
+    #
+    # def jietu(self,case,dongzuo):
+    #     self.drvier.get_screenshot_as_file (self.mingzi(case,dongzuo))
 
 

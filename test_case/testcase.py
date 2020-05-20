@@ -4,11 +4,12 @@ from lib.browser import *
 from time import sleep
 
 
+
 class TestWareHouse (CCC,unittest.TestCase) :
     @classmethod
     def setUpClass(self) :
         self.driver = open_browses ()
-        sleep ( 3 )
+        sleep ( 1 )
 
     def test_1(self) :
         self.ccc ( "test_1", 'click' )
